@@ -16,6 +16,8 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
 	Optional<Student> getStudentById(Long id);
 	
+	List<Student> getStudentByLovesClass(boolean lovesClass);
+	
 	@Override
 	List<Student> findAll();
 	

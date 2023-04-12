@@ -15,15 +15,15 @@ import com.example.studentapi.models.Student;
 import com.example.studentapi.repository.StudentRepository;
 
 @RestController
-@RequestMapping("/api")
-public class StudentController {
+@RequestMapping("/api/v1")
+public class StudentControllerV1 {
 
 	@Autowired
 	StudentRepository studentRepository;
 
 	@GetMapping("/test")
 	public String testEndpoint() {
-		return "This was sent by our student controller at the endpoint of test";
+		return "This was sent to Version 1";
 	}
 
 	@GetMapping("/students")
@@ -34,11 +34,11 @@ public class StudentController {
 	
 	@GetMapping("/students/{id}")
 	public Optional<Student> getStudentById(@PathVariable(value="id") Long id) {
+		
 		Optional<Student> student = studentRepository.getStudentById(id);
 		return student;
 	}
-	
-	
+
 	@PostMapping("/students")
 	public void createStudent(@RequestBody Student student) {
 		studentRepository.save(student);
