@@ -24,7 +24,6 @@ function StudentTable() {
             </thead>
             <tbody>
                 {students.map((student) => {
-                    console.log(student)
                     return (
                         <tr key={student.id}>
                             <td>{student.firstName}</td>
